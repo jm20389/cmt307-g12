@@ -1,7 +1,7 @@
 ---
-title: "Traffic signs recognition by Computer Vision"
-subtitle: 'Group 12'
-author: "Chuntong Huang; Guoyi Jia; Hekang Zhang; Matthew Esposito; Matthew Jepson; Xiaoling Zhu; Zhicong Tang; Jose Mendoza-Jimenez"
+title: "Detection and recognition of traffic signs"
+subtitle: 'CMT307 Group 12 - Supervisor: Dev Kant'
+author: "C. Huang; G. Jia; H. Zhang; M. Esposito; M. Jepson; X. Zhu; Z. Tang; J. Mendoza"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 output:
   pdf_document:
@@ -24,7 +24,7 @@ geometry: margin=1in
 link-citations: yes
 bibliography: refs.bib
 
-abstract: The present document is a coursework report for the module CMT307 Applied Machine Learning, for the academic year 2021-2022. This document supports the deployment of a Convolutional Neural Network for Computer Vision, with the scope of classifying traffic signs.
+abstract: The present document is a coursework report for the module CMT307 Applied Machine Learning, academic year 2021-2022. This document describes the deployment and implementation of a Convolutional Neural Network used for Computer Vision, with the scope of classifying a set of traffic signs pictures from the German Traffic Sign Recognition Benchmark (GTSRB).
 ---
 
 <!-- set knitr options here -->
@@ -37,74 +37,79 @@ knitr::opts_chunk$set(echo = TRUE)
 
 \pagebreak
 
-# Introduction {#intro}
+
+
+# 1. Introduction {#intro}
+
+Summary of the task and main goals/contributions/insights of the project.
+
+The scope of this project is to develope a machine learning model capable of identify and classify traffic signs with the use of pictures, what is known in the industry as *Computer Vision.*
+
+The data sources to train and test this model was obtained from the German Traffic Sign Recognition Benchmark (GTSRB)[^1]. Links to this datasets are provided in Appendix 1. The project will consist of several python scripts that will decode pictures into numpy arrays to build the initial dataset, analyze and manipulate these pictures to finally be fed into a *Convolutional Neuronal Network* (CNN from now on) whose performance and implementation will be discussed, alongside different strategies and alternatives to improve performance. The choice of this machine learning method, as well as the CNN architechture and other computer vision alternatives, will be discussed in the later sections of this report.
+
+
+[^1]: https://sid.erda.dk/public/archives/daaeac0d7ce1152aea9b61d9f1e19370/published-archive.html
 
 
 
 
-# Background {#sec:background}
+# 2. Literature review / Related work {#sec:literature}
+
+Overview of the related work most connected to the methods and tasks of the projects. Explain the differences and the connection between works in the literature with respect to the employed method (e.g. advantages/disadvantages, ideas you exploited, etc.).
+Tip: Google Scholar is a good resource to find relevant articles to any of the topics.
+
+
+
+
+# 3. Description of the task/dataset
+
+Description of the task and dataset, including relevant statistics of dataset splits.
+
+The aforementioned dataset 
+
+
+
+# 4. Methodology
+
+Description of the machine learning methods used in the project.
+
+
+
+
+# 5. Experimental setting
+
+Description of the specific details of the evaluation (e.g. parameter tuning, usage of the development set).
+
+
+
+
+# 6. Results
+
+Final results of the experiments, including baselines and table/s with precision/recall/accuracy/f1, etc.
+
+
+
+
+# 7. Analysis
+
+Analysis of the results, error analysis (investigate the type of error the system makes, etc.).
+
+
+
+
+# 8. Conclusion and future work
+
+Summary of the main conclusions and takeaways from the experiments. Explain ways to investigate or improve the method in the future.
 
 
 
 
 
 
-# Data collection and preparation
-
-## Problem definition
-The *present* model _attempts_ to simulate 
-
-
-
-| Gym              | Cycling track     | Swimming            | Studio      | Cycling studio    |
-| ---              | -------------     | --------            | ------      | --------------    |
-| - Machines       | - Casual cycling  | - Swim for all      | - Yoga      | - Group cycling   |
-| - Weight lifting | - Learn to ride   | - Swim for fitness  | - Aerobics  |                   |
-|                  | - Better go ride  | - Swim for 60+      | - Pilates   |                   |
-|                  |                   | - Swim for women    | - Circuits  |                   |
-|                  |                   | - Aqua aerobics     | - Zumba     |                   |
-|                  |                   |                     | - Box fit   |                   |
 
 
 
 
-# Simulation Model
-
-
-## Strategy and approach
-
-
-
-
-# Experiments and tests
-
-## Verification
-
-## Validation
-
-
-
-
-
-# Scenario testing
-
-## Scenario 1
-
-## Scenario 2
-
-
-
-
-
-# (TEST ONLY) Maths 
-
-## Equations
-
-- Arrival times are modelled following an exponential distribution: $$ f(x; \lambda) = \lambda e^{-\lambda x} | x\ge 0$$
-
-![Exponential distribution (\#fig:bb1)](exp_dist.jpg){width=50%}
-
-\pagebreak
 
 
 
@@ -130,7 +135,7 @@ Second appendix without listing item
 
 
 # Citations 
-See for example [@geron01], [@avendi01] and [@chollet01].
+See for example [@avendi01], [@chollet01] and [@geron01] .
 
 
 
