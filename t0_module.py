@@ -3,7 +3,7 @@
 
 # # Import required modules:
 
-# In[54]:
+# In[5]:
 
 
 import numpy as np
@@ -20,20 +20,20 @@ import pandas as pd
 
 # # Source training and test image files:
 
-# In[3]:
+# In[6]:
 
 
 train_dir = "data/train/"
 test_dir = "data/test/"
 
-len(os.listdir(test_dir))
 
+# ***
 
 # # Training set
 
-# ## Obtain labels: For each different category:
+# ### Obtain labels: For each different category:
 
-# In[10]:
+# In[7]:
 
 
 class_names = [
@@ -81,12 +81,29 @@ class_names = [
 "End of no passing zone",
 "End of no passing zone for trucks"
 ]
-len(class_names)
 
 
-# ## Decode all ppm pictures from a given directory into numpy array;
+# ### Label all training pictures (y_train)
 
-# In[52]:
+# In[8]:
+
+
+y_train = []
+
+for folder in os.listdir(train_dir):
+    
+    pictures = [pic for pic in os.listdir(train_dir + "/" + folder) if pic.split(".")[-1] == "ppm" ] # filter out non-ppm files
+    
+    for picture in pictures:
+        y_train.append(class_names[int(folder)]) # translates ClassId figure into label name, for example class_names[int(000000)] = 'Max Speed 20 km/h'
+
+        
+y_train = np.array(y_train)
+
+
+# ### Create a function to decode all ppm pictures from a given directory into a numpy array;
+
+# In[10]:
 
 
 #Create a filtered list of .ppm files, then call plt.imread on the resulting list.
@@ -94,7 +111,7 @@ len(class_names)
 def PpmToNumpy(directory):
     
     '''
-    Clusters decoded ppm pictures into a numpy array, given a host directory.
+    Given a host directory containing ppm pictures, converts the pictures into a numpy array, returning an array with the whole list of pictures.
 
     Params:
     String containing a directory address.
@@ -111,37 +128,9 @@ def PpmToNumpy(directory):
                        
 
 
-# ## Label all training pictures (y_train)
+# ### Build training dataset (x_train)
 
-# In[58]:
-
-
-y_train = []
-
-for folder in os.listdir(train_dir):
-    
-    pictures = [pic for pic in os.listdir(train_dir + "/" + folder) if pic.split(".")[-1] == "ppm" ] # filter out non-ppm files
-    #print(folder, pictures)
-    
-    for picture in pictures:
-        y_train.append(class_names[int(folder)])
-
-y_train = np.array(y_train)
-y_train
-
-
-# ## Build training dataset (x_train)
-
-# In[33]:
-
-
-x_train = PpmToNumpy(train_dir + "/00000/")
-
-print('length x_train:', len(x_train), type(x_train) )
-print('length x_train[0]', len(x_train[0]), type(x_train[0]))
-print('length x_train[0][0]', len(x_train[0][0]), type(x_train[0][0]))
-print('contents from x_train[0][0]', x_train[0])
-# In[34]:
+# In[11]:
 
 
 all_images = [ PpmToNumpy(train_dir + "/" + folder + "/") for folder in os.listdir(train_dir)]
@@ -149,18 +138,41 @@ all_images = [ PpmToNumpy(train_dir + "/" + folder + "/") for folder in os.listd
 x_train = np.concatenate(all_images, axis=0, out=None, dtype=None, casting="same_kind")
 
 
-# ## Show pictures
-
-# In[51]:
-
-
+# ### Show pictures - trial cell:
 index = 12312
 
 plt.figure()
 plt.imshow(x_train[index, ], cmap = 'gray')
 plt.title(y_train[index])
 plt.show()
+# In[31]:
 
+
+type(x_train[0].shape[0])
+
+
+# In[35]:
+
+
+# Train summary file:
+
+train_summary = dict.fromkeys(["Width", "Height", "ClassId"], [])
+widths = []
+heights = []
+
+for picture in x_train:
+    widths.append(picture.shape[0])
+    heights.append(picture.shape[1])
+
+train_summary["Width"] = widths
+train_summary["Height"] = heights
+train_summary["ClassId"] = y_train
+ 
+train_summary_df = pd.DataFrame( train_summary)
+train_summary_df.head(50)
+
+
+# ***
 
 # # Test set
 
@@ -185,13 +197,10 @@ y_test
 x_test = PpmToNumpy(test_dir)
 
 
-# In[68]:
-
-
+# ## Show pictures - trial cell:
 index = 9796
 
 plt.figure()
 plt.imshow(x_test[index, ], cmap = 'gray')
 plt.title(y_test[index])
 plt.show()
-
