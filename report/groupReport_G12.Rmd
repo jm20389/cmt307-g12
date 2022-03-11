@@ -41,7 +41,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # 1. Introduction {#intro}
 
-Summary of the task and main goals/contributions/insights of the project.
+**Summary of the task and main goals/contributions/insights of the project.**
 
 The scope of this project is to develope a machine learning model capable of identify and classify traffic signs with the use of pictures, what is known in the industry as *Computer Vision.*
 
@@ -55,17 +55,25 @@ The data sources to train and test this model was obtained from the German Traff
 
 # 2. Literature review / Related work {#sec:literature}
 
-Overview of the related work most connected to the methods and tasks of the projects. Explain the differences and the connection between works in the literature with respect to the employed method (e.g. advantages/disadvantages, ideas you exploited, etc.).
-Tip: Google Scholar is a good resource to find relevant articles to any of the topics.
+**Overview of the related work most connected to the methods and tasks of the projects. Explain the differences and the connection between works in the literature with respect to the employed method (e.g. advantages/disadvantages, ideas you exploited, etc.).
+Tip: Google Scholar is a good resource to find relevant articles to any of the topics. **
+
+A CNN is a type of Artificial Neural Network where the neurons within any given layer will only connect to a small region of the layer preceding it. The biggest impact of the introduction of these types of networks is the significant reduction in computation workload, and this posed a notable benefit in the field of image processing. The reason why the Computer Vision technology has taken off during the recent years is due to reduce is hardware cost, increase on processors speed, and afordable better access for developers to big data storage pools.
+
+In this section we will discuss the latest breakthroughs in the area of computer vision.
+
+
+
 
 
 
 
 # 3. Description of the task/dataset
 
-Description of the task and dataset, including relevant statistics of dataset splits.
 
-The aforementioned dataset 
+The German Traffic Sign Recognition Benchmark (GTSRB) contains 43 classes of traffic signs, split into 39,209 training images and 12,630 test images. The images have varying light conditions and rich backgrounds.
+
+An exploratory data analysis was carried out after having decoded the ppm images into numpy arrays.
 
 
 
