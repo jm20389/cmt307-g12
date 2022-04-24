@@ -50,7 +50,9 @@ This script is capable of detecting whether you are working in your local machin
 ### Option A - Run locally using Jupyter Notebooks:
 
 Download the **data** folder from the above link and paste it inside *cmt307-g12*. 
+
 <br/>
+
 Then the script can be run using Jupyer Notebooks from whatever location.
 
 <br/>
@@ -58,12 +60,14 @@ Then the script can be run using Jupyer Notebooks from whatever location.
 ### Option B - Run using Google Colab:
 
 Download the **data** folder from the above link and paste it inside *cmt307-g12*. 
+
 <br/>
+
 For this script to run in Google Colab, **the folder cmt307-g12 must be placed in the ROOT of your Google Drive:**
 
 <br/>
 
-#%cd /content/gdrive/MyDrive
+_%cd /content/gdrive/MyDrive_
 
 
 <br/>
@@ -80,22 +84,31 @@ If you run this repository in Google Colab, the **repository folder must be clon
 <br/>
 
 1. In Google Colab, mount your drive first:
+
 <br/>
 
-from google.colab import drive
-drive.mount('/content/gdrive')
+_from google.colab import drive_
+
+_drive.mount('/content/gdrive')_
+
+<br/>
 
 2. Navigate through the Google Drive root:
+
 <br/>
 
-%cd /content/gdrive/MyDrive
-!ls
+_cd /content/gdrive/MyDrive_
+
+_!ls_
+
+<br/>
 
 3. Clone the repository using Git:
+
 <br/>
 
 
-!git clone https://git_token@github.com/jm20389/cmt307-g12.git
+_!git clone https://git_token@github.com/jm20389/cmt307-g12.git_
 
 
 ***
