@@ -1,1 +1,0 @@
-All code files must be zipped into a file called "groupCode_G12.zip" and submitted alongside the group report (pdf)
