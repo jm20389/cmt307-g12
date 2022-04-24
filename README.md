@@ -22,7 +22,7 @@ The link below contains only the ppm pictures from the train and test datasets, 
 
 <br/>
 
-If for whatever reason the links above don't work, you could also find the **data** folder in the [github repository](https://github.com/jm20389/cmt307-g12) (ligth version).
+If for whatever reason the links above don't work, you could also find the **data** folder in the [github repository](https://github.com/jm20389/cmt307-g12) (light version).
 
 <br/>
 
