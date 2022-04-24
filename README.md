@@ -82,20 +82,20 @@ If you run this repository in Google Colab, the **repository folder must be clon
 1. In Google Colab, mount your drive first:
 <br/>
 
-#from google.colab import drive
-#drive.mount('/content/gdrive')
+from google.colab import drive
+drive.mount('/content/gdrive')
 
 2. Navigate through the Google Drive root:
 <br/>
 
-#%cd /content/gdrive/MyDrive
-#!ls
+%cd /content/gdrive/MyDrive
+!ls
 
 3. Clone the repository using Git:
 <br/>
 
 
-#!git clone https://git_token@github.com/jm20389/cmt307-g12.git
+!git clone https://git_token@github.com/jm20389/cmt307-g12.git
 
 
 ***
